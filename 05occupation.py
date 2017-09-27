@@ -6,6 +6,7 @@ my_app = Flask(__name__)
 def root():
 	return "<h1>Welcome!</h1>"
 
+#read through csv and create dictionary
 fileocc = open('occupations.csv')
 nextline = fileocc.readline()
 #print nextline
@@ -25,7 +26,8 @@ for nextline in fileocc:
 		percent = nextline[ind+1:ind2]
 
 	jobs[jobType] = float(percent)
-	
+
+#choose random occupation in dictionary
 def chooseRandom():
     my_list = []
     for key in jobs:
@@ -34,7 +36,7 @@ def chooseRandom():
         x = random.choice(my_list)
     return str(x) + "   " + str(jobs[x])
 
-
+#occupations route, using a template
 @my_app.route('/occupations')
 def occupations():
 	return render_template('content1.html', jobs= jobs, rand = chooseRandom())
