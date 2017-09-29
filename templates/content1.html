@@ -5,10 +5,10 @@
   </head>
   <body>
 	  <center><h1>Very Detailed Table of Occupations</h1></center>
+	   <!--loop through jobs dictionary to present job with job percentage-->
 	  <center><table border="1">
-		  <!--loop through jobs dictionary to present job with job percentage-->
 		  {% for job, jobpercent in jobs.iteritems() %}
-		  
+		
 		  <tr>
 			  <th> {{ job }} </th>
 			  <td> {{ jobpercent }} </td>
